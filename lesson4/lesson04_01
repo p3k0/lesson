@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+  <title>UFOを表示する</title>
+  </head>
+<body>
+<canvas id="canvas" width="200px" height="100px" style="background-color:black;"></canvas>
+  <script>
+ const ufoImage = new Image();
+ ufoImage.src = "./ufo.png";
+  </script>
+</body>
+</html>
