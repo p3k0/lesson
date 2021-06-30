@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+  <title>UFOを動かす</title>
+  </head>
+<body>
+  <canvas id="canvas" width="800px" height="100px" style="background-color:black;"></canvas>  
+  <script>
+    "use strict";
+    const ufoImage = new Image();
+    ufoImage.src = "./ufo.png";
+    
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+    
+    let x = 0;
+    
+    mainLoop();
+    
+    function mainLoop(){
+    context.clearRect(0, 0, 800, 100);
+    context.drawImage(ufoImage, x, 10);
+    if(x < 720){
+    x += 10;
+    setTimeout(mainLoop, 20)+
+    }
+    }
+  </script>
+</body>
+</html>
