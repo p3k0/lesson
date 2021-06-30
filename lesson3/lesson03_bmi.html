@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+  <title>BMI計算プログラム</title>
+  </head>
+<body>
+ <div style="background-color :pink;">
+   <p>
+     身長:<input type="text" id="height_text" size="3">cm
+     体重:<input type="text" id="weight_text" size="3">kg
+     <button id="calc_bmi_button">計算する</button>
+   </p>
+   <p>
+     <span id="bmi_result">ここに結果が表示されます。</span>
+   </p>
+  </div>
+  <script>
+   "use strict";
+    const button = document.getElementById("calc_bmi_button");
+    button.onclick = calcBmi;
+    function calcBmi(){
+      const height = Number.parseFloat(document.getElementById("height_text").value);
+      const weight = Number.parseFloat(document.getElementbyId("weight_text").value);
+      const result = document.getElementById("bmi_result");
+      if (Number.isNaN(height)){
+        result.textContent = "身長は数値で入力してください。";
+        return;
+      }
+      if (Number.isNaN(weight)){
+        result.textContent = "体重は数値で入力してください。";
+        return;
+      }
+      const bmi = weight / ((height / 100.0) * (height / 100.0));
+      let resultText = "あなたのBMIは" +bmi.toFixed(1) + "です。";
+      if (bmi < 18.50){
+        resultText += "痩せすぎですね。";
+      }else if (bmi < 25.00){
+        resultText += "普通体重ですね。";
+      }else if (bmi < 30.00){
+        resultText += "肥満(1度)です。";
+      }else if (bmi < 35.00){
+        resultText += "肥満(2度)です。";
+      }else if (bmi < 40.00){
+        resultText += "肥満(3度)です。";
+      }else{
+        resultText += "肥満(4度)です。いくらなんでも太りすぎです。";
+      }
+      result.textContent = resultText;
+    };
+  </script>
+</body>
+</html>
