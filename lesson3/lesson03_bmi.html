@@ -21,7 +21,7 @@
     button.onclick = calcBmi;
     function calcBmi(){
       const height = Number.parseFloat(document.getElementById("height_text").value);
-      const weight = Number.parseFloat(document.getElementbyId("weight_text").value);
+      const weight = Number.parseFloat(document.getElementById("weight_text").value);
       const result = document.getElementById("bmi_result");
       if (Number.isNaN(height)){
         result.textContent = "身長は数値で入力してください。";
